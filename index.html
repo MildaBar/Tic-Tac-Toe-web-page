@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/png" href="./icons/page-icon/page-icon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -14,39 +15,56 @@
         <h2>GAME</h2>
       </div>
     </header>
-    <div class="sidebar">
-      <h2>Rules</h2>
-      <p>
-        Welcome to Tic Tac Toe game! This is some information about the topic.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-        tristique eget ipsum vel consectetur.
-      </p>
-      <p>
-        Phasellus nec dui eu nibh gravida ullamcorper eget a lectus. Vestibulum
-        rutrum dui vel elit aliquet venenatis.
-      </p>
-    </div>
+
     <div class="main-content">
-      <div class="grid-container">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
+      <!-- LEFT SIDEBAR -->
+      <div class="left-sidebar">
+        <h2>Welcome to the Tic Tac Toe game!</h2>
+        <h3>Rules</h3>
+        <p>
+          Players take turns placing their symbols, usually "X" and "O," in
+          empty cells. The objective is to be the first player to form a line of
+          four of their symbols either horizontally, vertically, or diagonally.
+          The game ends when one player wins, or if all 16 cells are filled
+          without a winner, resulting in a draw.
+        </p>
+        <h3>Choose player type</h3>
+        <p>
+          You can choose three types of game: Human vs. Human, Human vs. AI, AI
+          vs. AI
+        </p>
+      </div>
+
+      <!-- GAME GRID -->
+      <div class="game">
+        <div class="grid-container">
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+          <div class="grid-item"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="right-sidebar">
+        <div id="player-type">
+          <div>Player 1</div>
+          <div>Player 2</div>
+        </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
