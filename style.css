@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  display: grid;
+  justify-items: center;
+}
+
+/* sidebar */
+.sidebar {
+  background-color: #a1b4a0;
+  float: left;
+  width: 25%;
+  height: 100%;
+  padding: 20px;
+}
+
+#game-title {
+  display: grid;
+  justify-items: center;
+}
+
+/* game grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+}
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  width: 60px;
+  height: 60px;
+}
