@@ -29,6 +29,100 @@ header {
   padding: 20px;
 }
 
+/* LEFT SIDEBAR */
+#rules-h2 {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.573);
+}
+#rules {
+  padding: 10px;
+  font-size: 18px;
+}
+
+ul li {
+  padding: 10px;
+}
+
+/* RIGHT SIDEBAR */
+/* choose game type */
+#game-type-h2 {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.573);
+}
+
+#game-type-msg {
+  padding: 10px;
+  font-size: 18px;
+  display: grid;
+}
+
+#game-form {
+  display: grid;
+  padding: 10px;
+  gap: 10px;
+}
+
+select {
+  height: 44px;
+  font-size: 18px;
+}
+
+#choose-btn {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #0d2106;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#choose-btn:hover {
+  background-color: #6ab929;
+  border: 1px solid black;
+}
+
+/* players */
+#player-type {
+  padding: 10px;
+  display: grid;
+}
+
+#players-h2 {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.573);
+}
+
+#message {
+  font-size: 18px;
+}
+
+/* start game button */
+/* Add the following CSS styles for centering the "Start Game" button */
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#start-game-btn {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #0d2106;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start-game-btn:hover {
+  background-color: #6ab929;
+  border: 1px solid black;
+}
+
 /* GAME */
 .game {
   display: grid;
@@ -48,4 +142,10 @@ header {
   text-align: center;
   width: 60px;
   height: 60px;
+}
+
+/* Add this to your CSS */
+.active-player {
+  font-weight: bold; /* Example: Highlight the active player's name */
+  color: blue; /* Example: Change the color for the active player */
 }

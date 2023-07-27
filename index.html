@@ -19,20 +19,25 @@
     <div class="main-content">
       <!-- LEFT SIDEBAR -->
       <div class="left-sidebar">
-        <h2>Welcome to the Tic Tac Toe game!</h2>
-        <h3>Rules</h3>
-        <p>
-          Players take turns placing their symbols, usually "X" and "O," in
-          empty cells. The objective is to be the first player to form a line of
-          four of their symbols either horizontally, vertically, or diagonally.
-          The game ends when one player wins, or if all 16 cells are filled
-          without a winner, resulting in a draw.
-        </p>
-        <h3>Choose player type</h3>
-        <p>
-          You can choose three types of game: Human vs. Human, Human vs. AI, AI
-          vs. AI
-        </p>
+        <h1>Welcome to the Tic Tac Toe game!</h1>
+        <h2 id="rules-h2">Rules</h2>
+        <ul id="rules">
+          <li>
+            Players take turns placing their symbols, "X" and "O," in empty
+            cells.
+          </li>
+          <li>
+            Be the first player to form a line of four of their symbols either
+            horizontally, vertically, or diagonally.
+          </li>
+          <li>
+            The game ends when one player wins, or if all 16 cells are filled
+            without a winner, resulting in a tie.
+          </li>
+          <li>
+            FIRST OF ALL choose the game type and then press START GAME button.
+          </li>
+        </ul>
       </div>
 
       <!-- GAME GRID -->
@@ -59,12 +64,43 @@
 
       <!-- RIGHT SIDEBAR -->
       <div class="right-sidebar">
-        <div id="player-type">
-          <div>Player 1</div>
-          <div>Player 2</div>
+        <!-- choose game type -->
+        <h2 id="game-type-h2">Choose game type</h2>
+        <div id="game-type">
+          <form id="game-form">
+            <label for="game-type" id="game-type-msg"
+              >You can choose three types of game: Human vs. Human, Human vs.
+              AI, AI vs. AI</label
+            >
+            <select id="game-type-select">
+              <option value="" selected disabled>Choose game type</option>
+              <option value="human-human">Human vs. Human</option>
+              <option value="human-AI">Human vs. AI</option>
+              <option value="AI-AI">AI vs. AI</option>
+            </select>
+            <input
+              type="submit"
+              name="choose"
+              id="choose-btn"
+              value="CHOOSE GAME TYPE"
+            />
+          </form>
         </div>
+        <h2 id="players-h2">Players</h2>
+        <div id="message"></div>
+
+        <!-- player type -->
+        <div id="player-type">
+          <h3 id="player1">PLAYER 1</h3>
+          <div id="first-player"></div>
+          <h3 id="player2">PLAYER 2</h3>
+          <div id="second-player"></div>
+        </div>
+
+        <!-- start game button -->
+        <button id="start-game-btn">START GAME</button>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>
