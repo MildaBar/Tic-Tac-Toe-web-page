@@ -1,3 +1,4 @@
+// import necessary functions and variables from the script.js file
 import { playerTurn, isGridFull, gameWinner } from "./script.js";
 
 // HUMAN VS HUMAN GAME
