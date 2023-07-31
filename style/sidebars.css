@@ -25,7 +25,6 @@ ul li {
 }
 
 /* RIGHT SIDEBAR */
-
 /* choose game type */
 #game-type-h2 {
   text-align: center;
@@ -49,6 +48,7 @@ select {
   font-size: 18px;
 }
 
+/* choose game type button */
 #choose-btn {
   font-size: 18px;
   padding: 10px 20px;
@@ -75,7 +75,7 @@ select {
   background-color: rgba(255, 255, 255, 0.573);
 }
 
-#message {
+#player-information {
   font-size: 18px;
 }
 
@@ -84,7 +84,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 100vh;
   padding: 10px;
 }
@@ -123,9 +123,7 @@ select {
   .right-sidebar {
     padding: 10px;
     width: 100%;
-    max-height: 40vh;
-    gap: 0;
-    margin: 0;
+    min-height: 50vh;
   }
 
   select {
