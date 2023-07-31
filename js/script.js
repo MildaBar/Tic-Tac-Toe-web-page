@@ -11,7 +11,7 @@ export const gridItems = document.querySelectorAll(".grid-item");
 // SELECT GAME TYPE ELEMENTS
 const playerOne = document.querySelector("#first-player");
 const playerTwo = document.querySelector("#second-player");
-const gameTypeMessage = document.querySelector("#message");
+const gameTypeInfo = document.querySelector("#player-information");
 const form = document.getElementById("game-form");
 
 // PREVENT FROM SUBMISSION
@@ -25,21 +25,21 @@ form.addEventListener("submit", (event) => {
   // START THE CORRESPONDING GAME BASED ON THE SELECRTED GAME TYPE
   // human vs. human game
   if (selectedGameType === "human-human") {
-    gameTypeMessage.innerText =
+    gameTypeInfo.innerText =
       "You are PLAYER 1, you will be playing against PLAYER 2.";
     playerOne.innerText = "You are Player 1, your symbol is X - good luck!";
     playerTwo.innerText = "Player 2 symbol is 0 - he is your rival, beat him!";
     start_human_vs_human_game();
     // human vs. AI game
   } else if (selectedGameType === "human-AI") {
-    gameTypeMessage.innerText =
+    gameTypeInfo.innerText =
       "You are PLAYER 1, you will be playing against AI PLAYER 2.";
     playerOne.innerText = "You are Player 1, your symbol is X - good luck!";
     playerTwo.innerText = "Player 2 is AI - its symbol is O.";
     start_AI_vs_human_game();
     // AI vs. AI game
   } else {
-    gameTypeMessage.innerText =
+    gameTypeInfo.innerText =
       "You choose the game type of AI vs. AI. Good watching!";
     playerOne.innerText = "Player 1 symbol - X.";
     playerTwo.innerText = "Player 2 symbol - O.";
