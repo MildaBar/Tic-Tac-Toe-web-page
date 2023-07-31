@@ -1,0 +1,74 @@
+/* MAIN CONTENT GRID */
+.main-content {
+  display: grid;
+  /* left Sidebar - Game Grid - Right Sidebar */
+  grid-template-columns: 1fr 4fr 1fr;
+  min-height: 100vh;
+}
+
+/* GAME */
+.game {
+  display: grid;
+  justify-items: center;
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+}
+
+.grid-item {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 50px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+}
+
+/* HIGHLIGHT THE WINNER CELLS */
+.winning-cell {
+  background-color: rgb(115, 241, 25);
+}
+
+/* WINNER MESSAGE */
+#winner-msg-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* hide the container by default */
+  display: none;
+}
+
+#winner-msg {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 30vh;
+  background-color: rgb(191, 238, 191);
+  font-size: 24px;
+}
+
+/* ADJUST SCREEN FOR MOBILE DEVICE */
+@media (max-width: 390px) {
+  /* main content */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* game grid */
+  .game {
+    padding: 10px;
+  }
+
+  .grid-item {
+    padding: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,7 +1,6 @@
 // import necessary functions and variables from the script.js file
 import {
   gameOver,
-  currentPlayer,
   gridItems,
   playerTurn,
   isGridFull,

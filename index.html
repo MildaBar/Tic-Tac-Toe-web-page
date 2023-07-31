@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="icon" type="image/png" href="./icons/page-icon/page-icon.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./winner_msg/style.css" />
+    <link rel="stylesheet" href="./style/sidebars.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/game_grid.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -72,27 +73,29 @@
 
       <!-- RIGHT SIDEBAR -->
       <div class="right-sidebar">
-        <!-- choose game type -->
-        <h2 id="game-type-h2">Choose game type</h2>
-        <div id="game-type">
-          <form id="game-form">
-            <label for="game-type" id="game-type-msg"
-              >You can choose three types of game: Human vs. Human, Human vs.
-              AI, AI vs. AI</label
-            >
-            <select id="game-type-select">
-              <option value="" selected disabled>Choose game type</option>
-              <option value="human-human">Human vs. Human</option>
-              <option value="human-AI">Human vs. AI</option>
-              <option value="AI-AI">AI vs. AI</option>
-            </select>
-            <input
-              type="submit"
-              name="choose"
-              id="choose-btn"
-              value="CHOOSE GAME TYPE"
-            />
-          </form>
+        <div id="game-type-container">
+          <!-- choose game type -->
+          <h2 id="game-type-h2">Choose game type</h2>
+          <div id="game-type">
+            <form id="game-form">
+              <label for="game-type" id="game-type-msg"
+                >You can choose three types of game: Human vs. Human, Human vs.
+                AI, AI vs. AI</label
+              >
+              <select id="game-type-select">
+                <option value="" selected disabled>Choose game type</option>
+                <option value="human-human">Human vs. Human</option>
+                <option value="human-AI">Human vs. AI</option>
+                <option value="AI-AI">AI vs. AI</option>
+              </select>
+              <input
+                type="submit"
+                name="choose"
+                id="choose-btn"
+                value="CHOOSE GAME TYPE"
+              />
+            </form>
+          </div>
         </div>
         <h2 id="players-h2">Players</h2>
         <div id="message"></div>

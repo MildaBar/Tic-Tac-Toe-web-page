@@ -49,8 +49,8 @@ form.addEventListener("submit", (event) => {
 
 // DISPLAY WHOSE TURN IT IS
 export function playerTurn(currentPlayer) {
-  const playerOneTurn = document.querySelector("#player1");
-  const playerTwoTurn = document.querySelector("#player2");
+  const playerOneTurn = document.getElementById("player1");
+  const playerTwoTurn = document.getElementById("player2");
 
   if (currentPlayer === 1) {
     playerOneTurn.classList.add("active-player");
