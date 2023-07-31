@@ -1,37 +1,43 @@
+// IMPORT THE NECESSAREY FUNCTIONS
 import { start_AI_vs_human_game } from "./ai_vs_human.js";
 import { start_human_vs_human_game } from "./human_vs_human.js";
 import { start_AI_vs_AI_game } from "./ai_vs_ai.js";
 
+// GLOBAL VARIABLES
 export let gameOver = false;
 export let currentPlayer = 1;
 export const gridItems = document.querySelectorAll(".grid-item");
 
-// SELECT GAME TYPE
+// SELECT GAME TYPE ELEMENTS
 const playerOne = document.querySelector("#first-player");
 const playerTwo = document.querySelector("#second-player");
 const gameTypeMessage = document.querySelector("#message");
 const form = document.getElementById("game-form");
 
-// prevent from submission
+// PREVENT FROM SUBMISSION
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // select game type
+  // SELECT HAME TYPE
   const gameTypeSelect = document.getElementById("game-type-select");
   const selectedGameType = gameTypeSelect.value;
 
+  // START THE CORRESPONDING GAME BASED ON THE SELECRTED GAME TYPE
+  // human vs. human game
   if (selectedGameType === "human-human") {
     gameTypeMessage.innerText =
       "You are PLAYER 1, you will be playing against PLAYER 2.";
     playerOne.innerText = "You are Player 1, your symbol is X - good luck!";
     playerTwo.innerText = "Player 2 symbol is 0 - he is your rival, beat him!";
     start_human_vs_human_game();
+    // human vs. AI game
   } else if (selectedGameType === "human-AI") {
     gameTypeMessage.innerText =
       "You are PLAYER 1, you will be playing against AI PLAYER 2.";
     playerOne.innerText = "You are Player 1, your symbol is X - good luck!";
-    playerTwo.innerText = "Player 2 is AI - it's symbol is O.";
+    playerTwo.innerText = "Player 2 is AI - its symbol is O.";
     start_AI_vs_human_game();
+    // AI vs. AI game
   } else {
     gameTypeMessage.innerText =
       "You choose the game type of AI vs. AI. Good watching!";
@@ -41,7 +47,7 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-// DISPLAY WHO'S TURN IS
+// DISPLAY WHOSE TURN IT IS
 export function playerTurn(currentPlayer) {
   const playerOneTurn = document.querySelector("#player1");
   const playerTwoTurn = document.querySelector("#player2");
@@ -61,7 +67,7 @@ export function isGridFull() {
   return Array.from(gridItems).every((item) => item.innerText !== "");
 }
 
-// GAME WINNER
+// CHECK FOR A GAME WINNER
 export function gameWinner() {
   const gridItems = document.querySelectorAll(".grid-item");
 
@@ -96,25 +102,29 @@ export function gameWinner() {
       return { symbol: "O", cells: [a, b, c, d] };
     }
   }
+  // return null if there is no winner
   return null;
 }
 
+// CHECK FOR A WINNER PLAYER AND HANDLE THE GAME OVER STATE
 export function checkForWinner(currentPlayer) {
   const winner = gameWinner();
-  if (winner === "X" || winner === "O") {
+
+  if (winner && (winner.symbol === "X" || winner.symbol === "O")) {
     const winnerMsgContainer = document.getElementById("winner-msg-container");
     winnerMsgContainer.style.display = "block";
 
     const winnerMsg = document.getElementById("winner-msg");
     if (
-      (winner === "X" && currentPlayer === 1) ||
-      (winner === "O" && currentPlayer === 2)
+      (winner.symbol === "X" && currentPlayer === 1) ||
+      (winner.symbol === "O" && currentPlayer === 2)
     ) {
       winnerMsg.innerHTML = `Player ${currentPlayer} wins!`;
     } else {
       winnerMsg.innerHTML = `Player ${currentPlayer === 1 ? 2 : 1} wins!`;
     }
 
+    // set the game over state to true
     gameOver = true;
   } else if (isGridFull()) {
     const winnerMsgContainer = document.getElementById("winner-msg-container");
@@ -123,6 +133,7 @@ export function checkForWinner(currentPlayer) {
     const winnerMsg = document.getElementById("winner-msg");
     winnerMsg.innerHTML = "It's a tie! The grid is full.";
 
+    // set the game over state to true
     gameOver = true;
   }
 }
