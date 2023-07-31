@@ -36,7 +36,7 @@ form.addEventListener("submit", (event) => {
     gameTypeMessage.innerText =
       "You choose the game type of AI vs. AI. Good watching!";
     playerOne.innerText = "Player 1 symbol - X.";
-    playerTwo.innerText = "Player 2 symbol - Y.";
+    playerTwo.innerText = "Player 2 symbol - O.";
     start_AI_vs_AI_game();
   }
 });
@@ -91,10 +91,38 @@ export function gameWinner() {
 
     // if all symbols in this combination are the same and not empty, there is a winner
     if (symbols.every((symbol) => symbol === "X")) {
-      return "X";
+      return { symbol: "X", cells: [a, b, c, d] };
     } else if (symbols.every((symbol) => symbol === "O")) {
-      return "O";
+      return { symbol: "O", cells: [a, b, c, d] };
     }
   }
   return null;
+}
+
+export function checkForWinner(currentPlayer) {
+  const winner = gameWinner();
+  if (winner === "X" || winner === "O") {
+    const winnerMsgContainer = document.getElementById("winner-msg-container");
+    winnerMsgContainer.style.display = "block";
+
+    const winnerMsg = document.getElementById("winner-msg");
+    if (
+      (winner === "X" && currentPlayer === 1) ||
+      (winner === "O" && currentPlayer === 2)
+    ) {
+      winnerMsg.innerHTML = `Player ${currentPlayer} wins!`;
+    } else {
+      winnerMsg.innerHTML = `Player ${currentPlayer === 1 ? 2 : 1} wins!`;
+    }
+
+    gameOver = true;
+  } else if (isGridFull()) {
+    const winnerMsgContainer = document.getElementById("winner-msg-container");
+    winnerMsgContainer.style.display = "block";
+
+    const winnerMsg = document.getElementById("winner-msg");
+    winnerMsg.innerHTML = "It's a tie! The grid is full.";
+
+    gameOver = true;
+  }
 }

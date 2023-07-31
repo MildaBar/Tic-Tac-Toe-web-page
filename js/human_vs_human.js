@@ -1,10 +1,9 @@
 import {
-  gameOver,
-  currentPlayer,
   gridItems,
   playerTurn,
   isGridFull,
   gameWinner,
+  checkForWinner,
 } from "./script.js";
 
 // HUMAN VS HUMAN GAME
@@ -29,16 +28,44 @@ export function start_human_vs_human_game() {
               item.innerText = "O";
             }
 
-            // Check for the winner after each symbol is added
-            const winner = gameWinner();
-            if (winner === "X") {
-              alert("We have a winner! Player 1 wins!");
-              gameOver = true;
-            } else if (winner === "O") {
-              alert("We have a winner! Player 2 wins!");
+            // check winner
+            const winnerData = gameWinner();
+            if (
+              winnerData &&
+              (winnerData.symbol === "X" || winnerData.symbol === "O")
+            ) {
+              const winnerMsgContainer = document.getElementById(
+                "winner-msg-container"
+              );
+              winnerMsgContainer.style.display = "block";
+
+              const winnerMsg = document.getElementById("winner-msg");
+              if (
+                (winnerData.symbol === "X" && currentPlayer === 1) ||
+                (winnerData.symbol === "O" && currentPlayer === 2)
+              ) {
+                winnerMsg.innerHTML = `Player ${currentPlayer} wins!`;
+              } else {
+                winnerMsg.innerHTML = `Player ${
+                  currentPlayer === 1 ? 2 : 1
+                } wins!`;
+              }
+
+              // Highlight the winning cells
+              winnerData.cells.forEach((cellIndex) => {
+                gridItems[cellIndex].classList.add("winning-cell");
+              });
+
               gameOver = true;
             } else if (isGridFull()) {
-              alert("It's a tie! The grid is full.");
+              const winnerMsgContainer = document.getElementById(
+                "winner-msg-container"
+              );
+              winnerMsgContainer.style.display = "block";
+
+              const winnerMsg = document.getElementById("winner-msg");
+              winnerMsg.innerHTML = "It's a tie! The grid is full.";
+
               gameOver = true;
             }
 
